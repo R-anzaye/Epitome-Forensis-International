@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  ::selection {
+    background-color: #D4AF37;
+    color: #0A0A0A;
+  }
+}
+
+@layer components {
+  .container-firm {
+    @apply mx-auto max-w-content px-6 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-widest-xl text-gold;
+  }
+
+  .eyebrow-light {
+    @apply font-sans text-xs font-semibold uppercase tracking-widest-xl text-muted-gold;
+  }
+
+  .gold-divider {
+    @apply h-px w-16 bg-gold;
+  }
+
+  .gold-divider-center {
+    @apply mx-auto h-px w-16 bg-gold;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-delay-100 { animation-delay: 100ms; opacity: 0; }
+  .animate-delay-200 { animation-delay: 200ms; opacity: 0; }
+  .animate-delay-300 { animation-delay: 300ms; opacity: 0; }
+  .animate-delay-500 { animation-delay: 500ms; opacity: 0; }
+  .animate-delay-700 { animation-delay: 700ms; opacity: 0; }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+}
