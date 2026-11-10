@@ -66,8 +66,8 @@ export function InsightsPage() {
 
   return (
     <Layout
-      title="Insights & Resources — Aurelius Legal"
-      description="Legal insights, articles, and resources from Aurelius Legal. Stay informed on corporate law, property, employment, family law, and dispute resolution."
+      title="Insights & Resources — Epitome Forensis International"
+      description="Legal insights, articles, and resources from Epitome Forensis International. Stay informed on corporate law, property, employment, family law, and dispute resolution."
     >
       {/* Hero */}
       <section className="bg-jet py-32 lg:py-40">

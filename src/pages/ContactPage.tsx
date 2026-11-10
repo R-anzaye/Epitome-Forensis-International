@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Facebook, Instagram, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Share2, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
+import { SocialIcon } from 'react-social-icons';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/Button';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -7,10 +8,10 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { siteConfig } from '@/config/site';
 
 const socialLinks = [
-  { icon: Linkedin, href: siteConfig.social.linkedin, label: 'LinkedIn' },
-  { icon: Twitter, href: siteConfig.social.twitter, label: 'Twitter' },
-  { icon: Facebook, href: siteConfig.social.facebook, label: 'Facebook' },
-  { icon: Instagram, href: siteConfig.social.instagram, label: 'Instagram' },
+  { url: siteConfig.social.linkedin, label: 'LinkedIn' },
+  { url: siteConfig.social.whatsapp, label: 'WhatsApp' },
+  { url: siteConfig.social.twitter, label: 'X' },
+  { url: siteConfig.social.facebook, label: 'Facebook' },
 ];
 
 const practiceAreaOptions = [
@@ -150,8 +151,8 @@ export function ContactPage() {
 
   return (
     <Layout
-      title="Contact Us — Aurelius Legal"
-      description="Get in touch with Aurelius Legal. Book a consultation, enquire about our legal services, or visit our office in Nairobi, Kenya."
+      title="Contact Us — Epitome Forensis International"
+      description="Get in touch with Epitome Forensis International. Book a consultation, enquire about our legal services, or visit our office in Nairobi, Kenya."
     >
       {/* Hero */}
       <section className="bg-jet py-32 lg:py-40">
@@ -243,22 +244,23 @@ export function ContactPage() {
                 {/* Social */}
                 <div className="flex gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-gold/30 text-gold">
-                    <Linkedin className="h-5 w-5" strokeWidth={1.5} />
+                    <Share2 className="h-5 w-5" strokeWidth={1.5} />
                   </div>
                   <div>
                     <h3 className="mb-2 font-sans text-xs font-semibold uppercase tracking-widest text-jet/50">Social Media</h3>
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {socialLinks.map((s) => (
-                        <a
+                        <SocialIcon
                           key={s.label}
-                          href={s.href}
+                          url={s.url}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.label}
-                          className="flex h-9 w-9 items-center justify-center border border-jet/15 text-jet/50 transition-all duration-300 hover:border-gold hover:text-gold"
-                        >
-                          <s.icon className="h-4 w-4" strokeWidth={1.5} />
-                        </a>
+                          style={{ width: 36, height: 36 }}
+                          bgColor="transparent"
+                          fgColor="rgba(10,10,10,0.5)"
+                          className="social-icon-btn social-icon-btn--light"
+                        />
                       ))}
                     </div>
                   </div>

@@ -7,8 +7,8 @@ import { practiceAreas } from '@/data/practiceAreas';
 export function PracticeAreasPage() {
   return (
     <Layout
-      title="Practice Areas — Aurelius Legal"
-      description="Explore Aurelius Legal's comprehensive practice areas, from corporate and commercial law to family law, intellectual property, and regulatory compliance."
+      title="Practice Areas — Epitome Forensis International"
+      description="Explore Epitome Forensis International's comprehensive practice areas, from corporate and commercial law to family law, intellectual property, and regulatory compliance."
     >
       {/* Hero */}
       <section className="bg-jet py-32 lg:py-40">
