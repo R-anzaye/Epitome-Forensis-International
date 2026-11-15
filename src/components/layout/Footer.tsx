@@ -1,21 +1,13 @@
 import { Link } from 'react-router-dom';
-import { Scale, Linkedin, Twitter, Facebook, Instagram, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { Scale, MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { SocialIcon } from 'react-social-icons';
 import { siteConfig, navItems } from '@/config/site';
 
-const practiceAreaLinks = [
-  'Corporate & Commercial Law',
-  'Civil Litigation',
-  'Real Estate & Conveyancing',
-  'Family Law',
-  'Employment & Labour Law',
-  'Intellectual Property',
-];
-
 const socialLinks = [
-  { icon: Linkedin, href: siteConfig.social.linkedin, label: 'LinkedIn' },
-  { icon: Twitter, href: siteConfig.social.twitter, label: 'Twitter' },
-  { icon: Facebook, href: siteConfig.social.facebook, label: 'Facebook' },
-  { icon: Instagram, href: siteConfig.social.instagram, label: 'Instagram' },
+  { url: siteConfig.social.linkedin, label: 'LinkedIn' },
+  { url: siteConfig.social.whatsapp, label: 'WhatsApp' },
+  { url: siteConfig.social.twitter, label: 'X' },
+  { url: siteConfig.social.facebook, label: 'Facebook' },
 ];
 
 export function Footer() {
@@ -25,7 +17,7 @@ export function Footer() {
       <div className="h-px w-full bg-gold/40" />
 
       <div className="container-firm py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
           {/* Brand */}
           <div>
             <Link to="/" className="mb-6 flex items-center gap-2.5">
@@ -39,16 +31,15 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-3">
               {socialLinks.map((s) => (
-                <a
+                <SocialIcon
                   key={s.label}
-                  href={s.href}
+                  url={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center border border-white/15 text-white/60 transition-all duration-300 hover:border-gold hover:text-gold"
-                >
-                  <s.icon className="h-4 w-4" strokeWidth={1.5} />
-                </a>
+                  style={{ width: 36, height: 36 }}
+                  className="social-icon-btn-real"
+                />
               ))}
             </div>
           </div>
@@ -66,25 +57,6 @@ export function Footer() {
                     className="text-sm text-white/60 transition-colors duration-300 hover:text-gold"
                   >
                     {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Practice Areas */}
-          <div>
-            <h3 className="mb-6 font-sans text-xs font-semibold uppercase tracking-widest-xl text-gold">
-              Practice Areas
-            </h3>
-            <ul className="space-y-3">
-              {practiceAreaLinks.map((pa) => (
-                <li key={pa}>
-                  <Link
-                    to="/practice-areas"
-                    className="text-sm text-white/60 transition-colors duration-300 hover:text-gold"
-                  >
-                    {pa}
                   </Link>
                 </li>
               ))}

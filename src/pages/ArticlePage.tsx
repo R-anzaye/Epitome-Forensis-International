@@ -13,7 +13,7 @@ export function ArticlePage() {
 
   if (!article) {
     return (
-      <Layout title="Article Not Found — Aurelius Legal" description="The requested article could not be found.">
+      <Layout title="Article Not Found — Epitome Forensis International" description="The requested article could not be found.">
         <section className="bg-jet py-40 text-center">
           <div className="container-firm">
             <h1 className="mb-6 font-serif text-3xl text-white">Article Not Found</h1>
@@ -44,7 +44,7 @@ export function ArticlePage() {
 
   return (
     <Layout
-      title={`${article.title} — Aurelius Legal`}
+      title={`${article.title} — Epitome Forensis International`}
       description={article.excerpt}
     >
       {/* Hero / Header */}

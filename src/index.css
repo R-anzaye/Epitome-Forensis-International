@@ -75,3 +75,47 @@
     100% { background-position: 200% 0; }
   }
 }
+
+/* ── react-social-icons hover effects ───────────────────────────────── */
+.social-icon-btn {
+  border-radius: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+  flex-shrink: 0;
+}
+
+.social-icon-btn:hover {
+  border-color: #D4AF37 !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25) !important;
+}
+
+/* Target the inner SVG paths to colour on hover */
+.social-icon-btn:hover svg [fill]:not([fill="none"]) {
+  fill: #D4AF37 !important;
+}
+
+/* Light variant (white background sections like ContactPage) */
+.social-icon-btn--light {
+  border-color: rgba(10, 10, 10, 0.15);
+}
+
+.social-icon-btn--light:hover {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2) !important;
+}
+
+/* Real brand-colored icons (footer) */
+.social-icon-btn-real {
+  border-radius: 8px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  flex-shrink: 0;
+  opacity: 1;
+  filter: brightness(1.05);
+}
+
+.social-icon-btn-real:hover {
+  transform: translateY(-3px) scale(1.12) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  filter: brightness(1.15);
+}

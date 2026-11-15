@@ -5,7 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 export function NotFoundPage() {
   return (
     <Layout
-      title="Page Not Found — Aurelius Legal"
+      title="Page Not Found — Epitome Forensis International"
       description="The page you are looking for could not be found."
     >
       <section className="bg-jet py-40 lg:py-48">

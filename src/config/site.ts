@@ -1,19 +1,19 @@
 export const siteConfig = {
-  firmName: 'Aurelius Legal',
+  firmName: 'Epitome Forensis International',
   firmTagline: 'Trusted Counsel. Strategic Solutions. Lasting Impact.',
   firmDescription:
-    'Aurelius Legal is a professional law firm committed to protecting our clients\u2019 interests through strategic, ethical, and results-oriented legal guidance.',
+    'Epitome Forensis International is a professional law firm committed to protecting our clients\u2019 interests through strategic, ethical, and results-oriented legal guidance.',
   contact: {
     address: '1st Floor, Riverside Park, Riverside Drive, Nairobi, Kenya',
     phone: '+254 700 000 000',
-    email: 'enquiries@aureliuslegal.co.ke',
+    email: 'enquiries@epitomeforensis.co.ke',
     hours: 'Monday \u2013 Friday: 8:30 AM \u2013 5:30 PM\nSaturday: 9:00 AM \u2013 1:00 PM\nSunday: Closed',
   },
   social: {
     linkedin: 'https://www.linkedin.com',
-    twitter: 'https://www.twitter.com',
+    whatsapp: 'https://wa.me/254700000000',
+    twitter: 'https://www.x.com',
     facebook: 'https://www.facebook.com',
-    instagram: 'https://www.instagram.com',
   },
   disclaimer:
     'The content of this website is for general informational purposes only and does not constitute legal advice. Viewing this website or contacting us through it does not, by itself, establish an advocate-client relationship.',

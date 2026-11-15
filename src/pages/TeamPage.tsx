@@ -19,8 +19,8 @@ export function TeamPage() {
 
   return (
     <Layout
-      title="Our Team — Aurelius Legal"
-      description="Meet the legal professionals at Aurelius Legal. Our managing partner, senior associates, associates, and support staff are committed to providing exceptional legal counsel."
+      title="Our Team — Epitome Forensis International"
+      description="Meet the legal professionals at Epitome Forensis International. Our managing partner, senior associates, associates, and support staff are committed to providing exceptional legal counsel."
     >
       {/* Hero */}
       <section className="bg-jet py-32 lg:py-40">
@@ -54,7 +54,7 @@ export function TeamPage() {
               className="mb-8"
             />
             <p className="text-lg leading-relaxed text-jet/70">
-              At {`Aurelius Legal`}, we believe that great legal outcomes are the product of great people working together. Our team combines deep legal knowledge with practical, commercially aware judgement \u2014 and a commitment to building lasting client relationships.
+              At {`Epitome Forensis International`}, we believe that great legal outcomes are the product of great people working together. Our team combines deep legal knowledge with practical, commercially aware judgement \u2014 and a commitment to building lasting client relationships.
             </p>
             <p className="mt-6 text-sm text-jet/40">
               Note: The profiles below contain placeholder information. All names, qualifications, biographies, and professional admissions must be verified before publication.
@@ -105,7 +105,7 @@ export function TeamPage() {
           />
           <div className="mx-auto max-w-4xl">
             <p className="text-center text-lg leading-relaxed text-white/70">
-              No single lawyer has all the answers. At {`Aurelius Legal`}, we bring together the right combination of experience and expertise for each matter, ensuring that your case benefits from the collective insight of our team.
+              No single lawyer has all the answers. At {`Epitome Forensis International`}, we bring together the right combination of experience and expertise for each matter, ensuring that your case benefits from the collective insight of our team.
             </p>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
