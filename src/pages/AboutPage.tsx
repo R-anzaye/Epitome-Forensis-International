@@ -1,11 +1,8 @@
 
-import { useEffect, useState } from 'react';
 import {
   Scale,
   FileText,
   Handshake,
-  ChevronLeft,
-  ChevronRight,
 } from 'lucide-react';
 
 import { Layout } from '@/components/layout/Layout';
@@ -13,64 +10,22 @@ import { Eyebrow } from '@/components/ui/Eyebrow';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { siteConfig } from '@/config/site';
 
-const heroSlides = [
-  {
-    eyebrow: 'About the Firm',
-    title: (
-      <>
-        Our Firm. Our Principles.
-        <br />
-        Your Interests.
-      </>
-    ),
-    description: `${siteConfig.firmName} was founded on a simple belief: that exceptional legal service should be accessible, principled, and tailored to the real needs of each client.`,
-    image:
-      'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85',
-  },
-  {
-    eyebrow: 'Our Philosophy',
-    title: (
-      <>
-        Clarity in Counsel.
-        <br />
-        Confidence in Action.
-      </>
-    ),
-    description:
-      'We listen carefully, think strategically, and act with integrity. Every matter receives thoughtful attention and a considered legal approach.',
-    image:
-      'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2000&q=85',
-  },
-  {
-    eyebrow: 'Our Commitment',
-    title: (
-      <>
-        Protecting What
-        <br />
-        Matters Most.
-      </>
-    ),
-    description:
-      'Through sound legal advice, effective representation, and unwavering professional standards, we work to protect our clients’ interests.',
-    image:
-      'https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=2000&q=85',
-  },
-  {
-    eyebrow: 'Our Expertise',
-    title: (
-      <>
-        Strategic Thinking.
-        <br />
-        Effective Representation.
-      </>
-    ),
-    description:
-      'We combine legal knowledge, practical insight, and dedicated representation to help individuals and organisations navigate complex legal challenges.',
-    image:
-      'https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&w=2000&q=85',
-  },
-];
+// Static Hero Content
+const heroSlide = {
+  eyebrow: 'About the Firm',
+  title: (
+    <>
+      Our Firm. Our Principles.
+      <br />
+      Your Interests.
+    </>
+  ),
+  description: `${siteConfig.firmName} was founded on a simple belief: that exceptional legal service should be accessible, principled, and tailored to the real needs of each client.`,
+  image:
+    'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=2000&q=85',
+};
 
+// Approach Areas
 const approachAreas = [
   {
     icon: Handshake,
@@ -93,54 +48,24 @@ const approachAreas = [
 ];
 
 export function AboutPage() {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  // Automatic carousel rotation
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length);
-    }, 6000);
-
-    return () => window.clearInterval(interval);
-  }, []);
-
-  // Previous slide
-  const previousSlide = () => {
-    setActiveSlide(
-      (current) => (current - 1 + heroSlides.length) % heroSlides.length
-    );
-  };
-
-  // Next slide
-  const nextSlide = () => {
-    setActiveSlide((current) => (current + 1) % heroSlides.length);
-  };
-
   return (
     <Layout
       title="About Us — Epitome Forensis International"
       description="Learn about Epitome Forensis International's history, philosophy, mission, and values. A professional law firm committed to integrity, confidentiality, and client-focused service."
     >
-      {/* HERO SECTION - FOUR SLIDE CAROUSEL */}
+
+      {/* HERO SECTION - SINGLE STATIC IMAGE */}
       <section className="relative flex min-h-[650px] items-center overflow-hidden bg-jet lg:min-h-[780px]">
 
-        {/* Background Images */}
-        {heroSlides.map((slide, index) => (
-          <div
-            key={slide.eyebrow}
-            className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
-              activeSlide === index ? 'opacity-100' : 'opacity-0'
-            }`}
-            aria-hidden="true"
-          >
-            <img
-              src={slide.image}
-              alt=""
-              className="h-full w-full object-cover"
-              loading={index === 0 ? 'eager' : 'lazy'}
-            />
-          </div>
-        ))}
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroSlide.image}
+            alt=""
+            className="h-full w-full object-cover"
+            fetchPriority="high"
+          />
+        </div>
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-jet/65" />
@@ -153,79 +78,26 @@ export function AboutPage() {
         {/* Hero Content */}
         <div className="container-firm relative z-10 w-full py-32 lg:py-40">
 
-          <div
-            key={activeSlide}
-            className="max-w-4xl animate-fade-up"
-            aria-live="polite"
-          >
+          <div className="max-w-4xl animate-fade-up">
+
             {/* Eyebrow */}
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-gold" />
 
               <span className="text-xs font-semibold uppercase tracking-widest-xl text-gold">
-                {heroSlides[activeSlide].eyebrow}
+                {heroSlide.eyebrow}
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-serif text-4xl leading-[1.1] text-white text-balance sm:text-5xl lg:text-7xl">
-              {heroSlides[activeSlide].title}
+              {heroSlide.title}
             </h1>
 
             {/* Description */}
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
-              {heroSlides[activeSlide].description}
+              {heroSlide.description}
             </p>
-          </div>
-
-          {/* Carousel Navigation */}
-          <div className="mt-16 flex items-center gap-8">
-
-            {/* Previous / Next Buttons */}
-            <div className="flex items-center gap-3">
-
-              <button
-                type="button"
-                onClick={previousSlide}
-                aria-label="Previous slide"
-                className="flex h-11 w-11 items-center justify-center border border-white/30 text-white transition-all duration-300 hover:border-gold hover:bg-gold hover:text-jet"
-              >
-                <ChevronLeft size={20} />
-              </button>
-
-              <button
-                type="button"
-                onClick={nextSlide}
-                aria-label="Next slide"
-                className="flex h-11 w-11 items-center justify-center border border-white/30 text-white transition-all duration-300 hover:border-gold hover:bg-gold hover:text-jet"
-              >
-                <ChevronRight size={20} />
-              </button>
-
-            </div>
-
-            {/* Four Slide Indicators */}
-            <div className="flex items-center gap-3">
-              {heroSlides.map((slide, index) => (
-                <button
-                  key={slide.eyebrow}
-                  type="button"
-                  onClick={() => setActiveSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                  aria-current={activeSlide === index ? 'true' : undefined}
-                  className={`h-1 transition-all duration-500 ${
-                    activeSlide === index
-                      ? 'w-12 bg-gold'
-                      : 'w-6 bg-white/40 hover:bg-white'
-                  }`}
-                />
-              ))}
-            </div>
-
-            {/* Slide Counter */}
-            <span className="ml-auto font-sans text-xs tracking-widest text-white/70">
-              0{activeSlide + 1} / 0{heroSlides.length}
-            </span>
 
           </div>
         </div>
@@ -315,7 +187,6 @@ export function AboutPage() {
         </div>
       </section>
 
-      
       {/* APPROACH TO REPRESENTATION */}
       <section className="bg-jet py-24 lg:py-32">
         <div className="container-firm">
@@ -380,7 +251,6 @@ export function AboutPage() {
                   </span>
 
                 </div>
-
               </div>
             ))}
 

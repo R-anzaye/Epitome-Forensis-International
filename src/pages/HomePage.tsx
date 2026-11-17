@@ -80,7 +80,7 @@ const heroSlides = [
 export function HomePage() {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  // Automatic slide rotation
+  // Automatic slide rotation - every 4 seconds
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % heroSlides.length);
@@ -106,6 +106,7 @@ export function HomePage() {
       title="Epitome Forensis International — Trusted Counsel. Strategic Solutions."
       description="Epitome Forensis International is a professional law firm committed to protecting client interests through strategic, ethical, and results-oriented legal guidance."
     >
+
       {/* HERO SECTION - FOUR SLIDE CAROUSEL */}
       <section className="relative min-h-screen overflow-hidden bg-jet">
 
@@ -114,7 +115,7 @@ export function HomePage() {
           {heroSlides.map((slide, index) => (
             <div
               key={slide.eyebrow}
-              className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
                 activeSlide === index ? 'opacity-100' : 'opacity-0'
               }`}
               aria-hidden="true"
@@ -131,7 +132,9 @@ export function HomePage() {
 
         {/* Dark Overlays */}
         <div className="absolute inset-0 bg-jet/65" />
+
         <div className="absolute inset-0 bg-gradient-to-r from-jet/90 via-jet/60 to-transparent" />
+
         <div className="absolute inset-0 bg-gradient-to-t from-jet via-transparent to-jet/20" />
 
         {/* Hero Content */}
@@ -142,68 +145,55 @@ export function HomePage() {
             className="max-w-3xl animate-fade-up"
             aria-live="polite"
           >
+
+            {/* Eyebrow */}
             <div className="mb-6 flex items-center gap-3">
               <span className="h-px w-10 bg-gold" />
+
               <span className="text-xs font-semibold uppercase tracking-widest-xl text-gold">
                 {heroSlides[activeSlide].eyebrow}
               </span>
             </div>
 
+            {/* Heading */}
             <h1 className="mb-6 font-serif text-4xl leading-[1.08] text-white text-balance sm:text-5xl lg:text-7xl">
               {heroSlides[activeSlide].title}
             </h1>
 
+            {/* Description */}
             <p className="max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
               {heroSlides[activeSlide].description}
             </p>
+
           </div>
 
-          {/* Carousel Controls */}
-          <div className="mt-16 flex items-center gap-8">
-
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={previousSlide}
-                aria-label="Previous slide"
-                className="flex h-11 w-11 items-center justify-center border border-white/30 text-white transition-all duration-300 hover:border-gold hover:bg-gold hover:text-jet"
-              >
-                <ChevronLeft size={20} />
-              </button>
-
-              <button
-                type="button"
-                onClick={nextSlide}
-                aria-label="Next slide"
-                className="flex h-11 w-11 items-center justify-center border border-white/30 text-white transition-all duration-300 hover:border-gold hover:bg-gold hover:text-jet"
-              >
-                <ChevronRight size={20} />
-              </button>
-            </div>
-
-            {/* Slide Indicators */}
-            <div className="flex items-center gap-3">
-              {heroSlides.map((slide, index) => (
-                <button
-                  key={slide.eyebrow}
-                  type="button"
-                  onClick={() => setActiveSlide(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                  aria-current={activeSlide === index ? 'true' : undefined}
-                  className={`h-1 transition-all duration-500 ${
-                    activeSlide === index
-                      ? 'w-12 bg-gold'
-                      : 'w-6 bg-white/40 hover:bg-white'
-                  }`}
-                />
-              ))}
-            </div>
-
-            <span className="ml-auto font-sans text-xs tracking-widest text-white/70">
-              0{activeSlide + 1} / 0{heroSlides.length}
-            </span>
-          </div>
         </div>
+
+        {/* Carousel Navigation - Opposite Sides */}
+        <div className="absolute bottom-12 left-0 right-0 z-20 flex items-center justify-between px-6 sm:px-10 lg:px-16">
+
+          {/* Previous Slide - Left */}
+          <button
+            type="button"
+            onClick={previousSlide}
+            aria-label="Previous slide"
+            className="flex h-12 w-12 items-center justify-center border border-white/40 text-white transition-all duration-300 hover:border-gold hover:bg-gold hover:text-jet sm:h-14 sm:w-14"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          {/* Next Slide - Right */}
+          <button
+            type="button"
+            onClick={nextSlide}
+            aria-label="Next slide"
+            className="flex h-12 w-12 items-center justify-center border border-white/40 text-white transition-all duration-300 hover:border-gold hover:bg-gold hover:text-jet sm:h-14 sm:w-14"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+        </div>
+
       </section>
 
       {/* PRACTICE AREAS */}
@@ -276,6 +266,7 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
     </Layout>
   );
 }
